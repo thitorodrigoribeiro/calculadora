@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <title>Calculadora</title>
+
+         <script type="text/javascript">
+            //Declaração de variáveis globais
+            var valor1, valor2, resultado, operador;
+
+            function mostraNum(num) {
+                document.calcform.visor.value = document.calcform.visor.value + num;
+
+            }
+
+            function limpaTela() {
+
+                document.calcform.visor.value = '';
+            }
+
+            function somar(){
+                operador = '+';
+                valor1 = parseFloat (document.calcform.visor.value);
+                document.calcform.visor.value = '';
+            }
+            
+            function subtra(){
+                operador = '-';
+                valor1 = parseFloat (document.calcform.visor.value);
+                document.calcform.visor.value = '';
+            }
+
+            function multip(){
+                operador = '*';
+                valor1 = parseFloat (document.calcform.visor.value);
+                document.calcform.visor.value = '';
+            }
+
+            function divid(){
+                operador = '/';
+                valor1 = parseFloat (document.calcform.visor.value);
+                document.calcform.visor.value = '';
+            }
+            
+            function calcular(){
+                valor2 = parseFloat (document.calcform.visor.value);
+                if(operador == '+'){
+                    resultado = valor1 + valor2;
+                }
+                else if(operador == '-'){
+                    resultado = valor1 - valor2;
+                }
+                else if(operador == '*'){
+                    resultado = valor1 * valor2;
+                }
+                else if(operador == '/'){
+                    resultado = valor1 / valor2;
+                } else{
+                    document.calcform.visor.value = 'ERRO';
+
+                }
+
+                    document.calcform.visor.value = resultado;  
+
+            }
+
+
+
+        </script>
+
+            
+    </head>
+    <body>
+        <div class="app">
+
+        <form name="calcform" method="post" action="">
+            <table>
+                <tr>
+                    <td><input type="text" class="tela" name="visor" value=""></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td><input type="button" class="botao4" name="limpar" value="CE" onclick="limpaTela()"></td>
+                    <td><input type="button" class="botao1" name="num9" value="9" onclick="mostraNum(9)"></td>
+                    <td><input type="button" class="botao2" name="soma" value="+" onclick="somar()"></td>
+                    <td><input type="button" class="botao2" name="subt" value="-" onclick="subtra()"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" class="botao1" name="num6" value="6" onclick="mostraNum(6)"></td>
+                    <td><input type="button" class="botao1" name="num7"     value="7"   onclick="mostraNum(7)"></td>
+                    <td><input type="button" class="botao1" name="num8"     value="8"   onclick="mostraNum(8)"></td>
+                    <td><input type="button" class="botao2" name="mult"     value="*"   onclick="multip()"> </td>
+                </tr>
+                <tr>
+                    <td><input type="button" class="botao1" name="num3"     value="3"   onclick="mostraNum(3)"></td>
+                    <td><input type="button" class="botao1" name="num4"     value="4"   onclick="mostraNum(4)"></td>
+                    <td><input type="button" class="botao1" name="num5"     value="5"   onclick="mostraNum(5)"></td>
+                    <td><input type="button" class="botao2" name="divi"     value="/"   onclick="divid()"> </td>
+                </tr>
+                <tr>
+                    <td><input type="button" class="botao1" name="num0"     value="0"   onclick="mostraNum(0)"></td>
+                    <td><input type="button" class="botao1" name="num1"     value="1"   onclick="mostraNum(1)"></td>
+                    <td><input type="button" class="botao1" name="num2"     value="2"   onclick="mostraNum(2)"></td>
+                    <td><input type="button" class="botao3" name="igual"    value="="   onclick="calcular()"></td>
+                </tr>
+            </table>
+
+            </form>
+
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript"></script>
+            app.initialize();
+    </body>
+</html>
